@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/static/v1?label=Blog&message=Programmer-Lifebetter&color=7159c1&?style=for-the-badge&logo=ghost"/>
+<img src="https://img.shields.io/static/v1?label=Readme&message=Programmer-Lifebetter&color=7159c1&?style=for-the-badge&logo=ghost"/>
 
 <h1 align="center">
   <a href="https://programmer-lifebetter.vercel.app/">Programmer-Lifebetter</a>
@@ -11,10 +11,10 @@
  <a href="#Clone and run application">Clone and run</a> • 
  <a href="#Technology">Tecnologias</a> • 
  <a href="#Author">Author</a> •
- <a href="#licenc-a">Licença</a>
+ <a href="#license">License</a>
 </p>
 
-### Features.
+### Features
 
 - [ ] New theme(dark mode).
 - [ ] Login with GitHub.
@@ -24,11 +24,7 @@
 - [ ] Responsiveness for mobile.
 - [ ] PWA functionality.
 
-<h1 align="center">
-  <img alt="Programmer-Lifebetter" title="#Programmer-Lifebetter" src="/icons/favicon.png" />
-</h1>
-
-### Pre-requisites
+### Prerequisites
 
  Before you begin, you will need to have the following tools installed on your machine:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org) and [Yarn](https://yarnpkg.com/getting-started).
@@ -70,11 +66,13 @@ The following tools were used in the construction of the project:
  <br />
  <sub><b>Henrique Nunes</b></sub></a>
 
-Contact
 
-[![Linkedin Badge](https://img.shields.io/badge/-Henrique Nunes-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/henrique-nunes-30291b184/)](https://www.linkedin.com/in/tgmarinho/) 
+Hey 👋 Get in touch!
+
+[![Linkedin Badge](https://img.shields.io/badge/-Henrique%20Nunes-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/henrique-nunes-30291b184/)](https://www.linkedin.com/in/henrique-nunes-30291b184/)
 [![Gmail Badge](https://img.shields.io/badge/-henrique.nunes478@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:henrique.nunes478@gmail.com)](mailto:henrique.nunes478@gmail.com)
 
+### License
 
 MIT License
 
