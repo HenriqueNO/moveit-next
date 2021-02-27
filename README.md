@@ -1,34 +1,99 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<img src="https://img.shields.io/static/v1?label=Blog&message=Programmer-Lifebetter&color=7159c1&?style=for-the-badge&logo=ghost"/>
 
-## Getting Started
+<h1 align="center">
+  <a href="https://programmer-lifebetter.vercel.app/">Programmer-Lifebetter</a>
+</h1>
+<p aling="center">Improve your life with simple exercises while working.</p>
 
-First, run the development server:
+<p align="center">
+ <a href="#Features">Features</a> •
+ <a href="#Prerequisites">Prerequisites</a> • 
+ <a href="#Clone and run application">Clone and run</a> • 
+ <a href="#Technology">Tecnologias</a> • 
+ <a href="#Author">Author</a> •
+ <a href="#licenc-a">Licença</a>
+</p>
+
+### Features.
+
+- [ ] New theme(dark mode).
+- [ ] Login with GitHub.
+- [ ] Lateral menu.
+- [ ] Leaderboard.
+- [ ] Share on social networks.
+- [ ] Responsiveness for mobile.
+- [ ] PWA functionality.
+
+<h1 align="center">
+  <img alt="Programmer-Lifebetter" title="#Programmer-Lifebetter" src="/icons/favicon.png" />
+</h1>
+
+### Pre-requisites
+
+ Before you begin, you will need to have the following tools installed on your machine:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org) and [Yarn](https://yarnpkg.com/getting-started).
+In addition, it is good to have an editor to work with the code like [VSCode](https://code.visualstudio.com/)
+
+### Clone and run application
 
 ```bash
-npm run dev
-# or
-yarn dev
+# Clone the repository.
+$ git clone https://github.com/HenriqueNO/moveit-next.git
+
+# Go to the project folder.
+$ cd moveit-next
+
+# Install the dependencies
+$ yarn install
+
+# Run the application in development mode.
+$ yarn dev
+
+# The server will start on the port:3000 - access <http://localhost:3000>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Technology
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+The following tools were used in the construction of the project:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Node.js](https://nodejs.org/en/)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+### Author
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<a href="https://github.com/HenriqueNO">
+ <img style="border-radius: 50%;" src="https://github.com/HenriqueNO.png" width="100px;" alt="Henrique Nunes"/>
+ <br />
+ <sub><b>Henrique Nunes</b></sub></a>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Contact
 
-## Deploy on Vercel
+[![Linkedin Badge](https://img.shields.io/badge/-Henrique Nunes-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/henrique-nunes-30291b184/)](https://www.linkedin.com/in/tgmarinho/) 
+[![Gmail Badge](https://img.shields.io/badge/-henrique.nunes478@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:henrique.nunes478@gmail.com)](mailto:henrique.nunes478@gmail.com)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+MIT License
+
+Copyright (c) <2020> <Henrique Nunes>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
