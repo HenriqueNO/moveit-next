@@ -14,6 +14,10 @@
  <a href="#license">License</a>
 </p>
 
+<h4 align="center"> 
+	🚧 Under construction 🚧
+</h4>
+
 ### Features
 
 - [ ] New theme(dark mode).
@@ -51,7 +55,7 @@ $ yarn dev
 ### Technology
 
 
-The following tools were used in the construction of the project:
+The following ⚒️ tools were used in the construction of the project:
 
 - [Next.js](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
