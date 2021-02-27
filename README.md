@@ -3,7 +3,7 @@
 <h1 align="center">
   <a href="https://programmer-lifebetter.vercel.app/">Programmer-Lifebetter</a>
 </h1>
-<p aling="center">Improve your life with simple exercises while working.</p>
+<p align="center">Improve your life with simple exercises while working.</p>
 
 <p align="center">
  <a href="#Features">Features</a> •
