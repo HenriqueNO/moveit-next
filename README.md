@@ -8,7 +8,7 @@
 <p align="center">
  <a href="#Features">Features</a> •
  <a href="#Prerequisites">Prerequisites</a> • 
- <a href="#Clone and run application">Clone and run</a> • 
+ <a href="#Clone-and-run">Clone and run application</a> • 
  <a href="#Technology">Tecnologias</a> • 
  <a href="#Author">Author</a> •
  <a href="#license">License</a>
@@ -30,7 +30,7 @@
 [Git](https://git-scm.com), [Node.js](https://nodejs.org) and [Yarn](https://yarnpkg.com/getting-started).
 In addition, it is good to have an editor to work with the code like [VSCode](https://code.visualstudio.com/)
 
-### Clone and run application
+### Clone-and-run
 
 ```bash
 # Clone the repository.
