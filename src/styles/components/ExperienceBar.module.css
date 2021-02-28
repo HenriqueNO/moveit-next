@@ -1,6 +1,13 @@
 .experienceBar {
     display: flex;
     align-items: center;
+    
+}
+
+@media(max-height: 680px) {
+    .experienceBar {
+        margin-bottom: 1.6rem;
+    }
 }
 
 .experienceBar span {

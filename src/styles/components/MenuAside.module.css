@@ -1,0 +1,43 @@
+.container {
+    background: var(--white);
+    display: grid;
+
+    grid-template-rows: 6fr 1fr 1fr 6fr;
+
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid var(--blue-dark);
+    border-radius: 0px 5px 5px 0px;
+}
+
+.container button {
+    height: 2.5rem;
+    border: none;
+    background: none;
+    width: 100%;
+}
+
+.container button:first-child {
+    margin-top: 2rem;
+    justify-self: center;
+    align-self: flex-start;
+    background: none;
+    font-size: 0px;
+}
+
+.buttonHome {
+    background: none;
+    font-size: 0px;
+    width: 100%;
+}
+
+.buttonHome:target {
+    border-left: 2px solid var(--blue-dark);
+}
+
+.container button:last-child {
+    justify-self: center;
+    align-self: flex-end;
+    margin-bottom: 2rem;
+    font-size: 0px;
+}
