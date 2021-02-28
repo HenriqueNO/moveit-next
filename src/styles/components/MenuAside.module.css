@@ -1,43 +1,56 @@
 .container {
-    background: var(--white);
+    height: 100vh;
+    left: 0;
+
+    float:left;
+    min-height: 610px;
+
     display: grid;
-
     grid-template-rows: 6fr 1fr 1fr 6fr;
-
-    justify-content: center;
     align-items: center;
-    border-right: 2px solid var(--blue-dark);
-    border-radius: 0px 5px 5px 0px;
+    justify-content: center;
+    
+
+    background-color: var(--white);
+    border-right: 1px solid var(--blue);
+    border-radius: 0px 10px 10px 0px;
 }
 
 .container button {
-    height: 2.5rem;
-    border: none;
+    font-size: 0;
     background: none;
-    width: 100%;
+    width: 5rem;
+    height: 3rem;
+
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border: hidden;
+    
+    transition: background-color 0.2s;
+}
+
+.container button:hover {
+    background-color: var(--background);
 }
 
 .container button:first-child {
-    margin-top: 2rem;
-    justify-self: center;
     align-self: flex-start;
-    background: none;
-    font-size: 0px;
+    margin-top: 1.5rem;
 }
 
 .buttonHome {
-    background: none;
-    font-size: 0px;
-    width: 100%;
+    border-left: 5px solid var(--blue);
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
 }
 
-.buttonHome:target {
-    border-left: 2px solid var(--blue-dark);
+.buttonLeaderBoard {
+
 }
 
 .container button:last-child {
-    justify-self: center;
     align-self: flex-end;
-    margin-bottom: 2rem;
-    font-size: 0px;
+    margin-bottom: 1.5rem;
 }

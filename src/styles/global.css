@@ -35,6 +35,22 @@
   --blue-light: #0060F0;
 }
 
+@media (prefers-color-scheme: dark) {
+  root {
+  --white: #171717;
+  --background: #121212;
+  --gray-line: #252525;
+  --text: #f0f0f0;
+  --text-highlight: #b3b9ff;
+  --title: hsl(216, 100%, 63%);
+  --red: #e83f5b;
+  --green: #4cd62b;
+  --blue: hsl(216, 100%, 63%);
+  --blue-dark: hsl(216, 70%, 56%);
+  --blue-twitter: #2aa9e0;
+}
+}
+
 @media(max-width: 1080px) {
   html {
     font-size: 93.75%;
