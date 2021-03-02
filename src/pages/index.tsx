@@ -1,5 +1,15 @@
+import { Login } from "../components/Login"
+
+import styles from '../styles/components/index.module.css'
+
 export default function index(){
+
     return(
-        <h1>hello</h1>
+        <div className={styles.container}>
+            <img src="/icons/logoBig.svg" alt="Logo"/>
+            <div className={styles.containerLogin}>
+                <Login />
+            </div>
+        </div>
     )
 }

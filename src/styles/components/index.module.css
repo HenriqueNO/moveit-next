@@ -1,0 +1,17 @@
+.container {
+    background: var(--blue);
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem
+}
+
+.container > img {
+    margin-top: 8.05rem;
+}
+
+.containerLogin {
+    justify-self: center;
+    align-self: center;
+    max-height: 5rem;
+}

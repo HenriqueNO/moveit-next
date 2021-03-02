@@ -1,3 +1,16 @@
-.root {
-    
+:root {
+    --white: #222;
+    --background: #F2F3F5;
+    --gray-line: #DCDDE0;
+    --text: #f5f5f5;
+    --text-highlight: #8388bd;
+    --title: #c7c7c7;
+    --red: #661724;
+    --green: #226113;
+    --blue: #333;
+    --blue-dark: #222;
+    --blue-twitter: #2aa9E0;
+    --purple: #260049;
+    --purble-dark: #0d0227;
+    --blue-light: #003f9e;
 }

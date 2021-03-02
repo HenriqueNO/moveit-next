@@ -1,0 +1,36 @@
+.container {
+    display: grid;
+    grid-template-rows: 1fr 1fr .8fr 1fr;
+    color: var(--white);
+}
+
+.container header{
+    font-weight: 800;
+    font-size: 2rem;
+    margin: 1.5rem .5rem;
+}
+
+.containerText {
+    display: grid;
+    grid-template-columns: .2fr 1fr;
+}
+
+.containerLogin {
+    display: flex;
+    border: 1px solid var(--blue);
+}
+
+.containerLogin {
+    background-image: linear-gradient(to right, var(--blue-light), var(--blue-dark));
+    border-radius: 10px;
+    height: 5rem;
+}
+
+.containerLogin button {
+    background-color: var(--blue-dark);
+    width: 35%;
+    height: 100%;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    background: url('/icons/arrow-right.svg') no-repeat center;
+}
