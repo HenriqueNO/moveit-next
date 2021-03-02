@@ -12,6 +12,9 @@ import styles from '../styles/components/Home.module.css'
 import { CountdownProvider } from '../contexts/CountdownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 import { MenuAside } from '../components/MenuAside';
+import { useSession } from 'next-auth/client';
+import { useContext } from 'react';
+import { ReturnToIndexContext, ReturnToIndexProvider } from '../contexts/ReturnToIndexContext';
 
 interface HomeProps {
   myLevel: number,
@@ -20,6 +23,10 @@ interface HomeProps {
 }
 
 export default function Home(props: HomeProps) {
+  const [ session, loading ] = useSession()
+  const { returnIndex } = useContext(ReturnToIndexContext)
+  
+  if (session) {
   return (
     <ChallengesProvider myLevel={props.myLevel} currentExperience={props.currentExperience} challengesCompleted={props.challengesCompleted}>
      
@@ -48,6 +55,8 @@ export default function Home(props: HomeProps) {
     </div>
   </ChallengesProvider>
   )
+  }
+  return <div onLoad={returnIndex}>Sign in</div>
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
