@@ -15,8 +15,10 @@ export function Login() {
             </div>
 
             <div className={styles.containerLogin}>
-                {!session && <><p> Faça login com seu GitHub para começar <br />
-                <button onClick={() => signIn()} /></p></>}
+                {!session && <><input placeholder="Digite seu username"></input> <br />
+                <button onClick={() => signIn()}>
+                    <img src="/icons/arrow-right.svg" alt="GitHub"/>
+                </button></>}
 
                 {session && <> Signed in as {session.user.email} <br />
                 <button onClick={() => signOut()}>Sign out</button></>}

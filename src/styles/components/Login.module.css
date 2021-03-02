@@ -2,6 +2,7 @@
     display: grid;
     grid-template-rows: 1fr 1fr .8fr 1fr;
     color: var(--white);
+    max-width: 450px;
 }
 
 .container header{
@@ -13,24 +14,40 @@
 .containerText {
     display: grid;
     grid-template-columns: .2fr 1fr;
+    color: var(--text-highlight);
+    font-size: 20px;
+    margin-left: .2rem;
+    width: 70%;
+}
+
+.container p {
+    margin-left: 0.3rem;
 }
 
 .containerLogin {
     display: flex;
+    width: 100%;
+    
     border: 1px solid var(--blue);
-}
-
-.containerLogin {
-    background-image: linear-gradient(to right, var(--blue-light), var(--blue-dark));
     border-radius: 10px;
     height: 5rem;
+    
+}
+
+.containerLogin input {
+    min-width: 70%;
+    font-size: 20px;
+    color: var(--white);
+    border-radius: 10px 0 0 10px;
+    background-image: linear-gradient(to right, var(--blue-light), var(--blue-dark));
+    border: hidden;
+    padding: 1.5rem;
 }
 
 .containerLogin button {
-    background-color: var(--blue-dark);
-    width: 35%;
-    height: 100%;
+    background: var(--blue-dark);
+    width: 20%;
     border: 1px solid var(--white);
-    border-radius: 10px;
-    background: url('/icons/arrow-right.svg') no-repeat center;
+    border-radius: 0 10px 10px 0;
+    font-size: 0;
 }
