@@ -1,10 +1,17 @@
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { signIn, useSession } from 'next-auth/client'
+import { useRouter } from 'next/router'
 
 import styles from '../styles/components/Login.module.css'
 
 export function Login() {
     const [ session, loading ] = useSession()
+    const Router = useRouter()
 
+    if(session) {
+        Router.push('/Home')
+    }
+    
+    
     return (
         <div className={styles.container}>
             <img src="/icons/logo-app.svg" alt="logo Move.it"/>
@@ -15,14 +22,10 @@ export function Login() {
             </div>
 
             <div className={styles.containerLogin}>
-                
                 {!session && <><input placeholder="Digite seu username"></input> <br />
-                <button onClick={() => signIn(null, { callbackUrl: 'http://localhost:3000/home' })}>
+                <button onClick={(): Promise<void> => signIn('github', {callbackUrl:"http://localhost:3000/Home"})}>
                     <img src="/icons/arrow-right.svg" alt="GitHub"/>
                 </button></>}
-
-                {session && <> Signed in as {session.user.email} <br />
-                <button onClick={() => signOut()}>Sign out</button></>}
             </div>
         </div>
     )

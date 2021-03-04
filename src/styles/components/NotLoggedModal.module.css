@@ -1,0 +1,52 @@
+.isNotLoggedOverLay {
+    background: rgba(242, 243, 245, 0.8);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  
+    display: grid;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.isNotLoggedContainer {
+    background: var(--white);
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem 3rem;
+    border-radius: 5px;
+    box-shadow:  0 0 60px rdba(0, 0, 0.86);
+    text-align: center;
+    position: relative;
+
+    align-self: flex-end;
+}
+
+.isNotLoggedOverLay div:last-child {
+    flex: 1;
+    height: 3px;
+    border-radius: 4px;
+    background: var(--gray-line);
+    position: relative;
+
+    align-self: flex-start;
+}
+
+.isNotLoggedOverLay div:last-child > div {
+    height: 3px;
+    border-radius: 4px;
+    background: var(--green);
+}
+
+.isNotLoggedContainer a {
+    font-weight: 600;
+    font-style: italic;
+    
+}
+
+.isNotLoggedContainer a:hover {
+    color: var(--blue-light)
+}

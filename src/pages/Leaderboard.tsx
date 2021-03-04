@@ -1,16 +1,16 @@
 import { useSession } from "next-auth/client"
 import { MenuAside } from "../components/MenuAside"
-import { ReturnToIndexProvider } from "../contexts/ReturnToIndexContext"
+import { NotLoggedModal } from "../components/NotLoggedModal"
 
 import styles from '../styles/components/Leaderboard.module.css'
 
 export default function Leaderboard() {
     const [ session, loading ] = useSession()
-
-    function returnIndex() {
-
-    }
     
+    if(loading) {
+        return <h1>carregando...</h1>
+    }
+
     if(session) {
         return(
             <div>
@@ -28,5 +28,5 @@ export default function Leaderboard() {
                 </div>
         )
     }
-    return <div onLoad={returnIndex}></div>
+    return <NotLoggedModal />
 }
