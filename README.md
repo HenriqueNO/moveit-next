@@ -20,8 +20,8 @@
 
 ### Features
 
+- [x] Login with GitHub.
 - [ ] New theme(dark mode).
-- [ ] Login with GitHub.
 - [ ] Lateral menu.
 - [ ] Leaderboard.
 - [ ] Share on social networks.
