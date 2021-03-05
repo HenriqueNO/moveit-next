@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import styles from '../styles/components/Login.module.css'
 
 export function Login() {
-    const [ session, loading ] = useSession()
+    const [ session ] = useSession()
     const Router = useRouter()
 
     if(session) {
