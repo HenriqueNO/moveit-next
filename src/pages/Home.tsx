@@ -8,7 +8,7 @@ import { Profile } from '../components/Profile';
 import { ChallengeBox } from '../components/ChallengeBox';
 
 
-import styles from '../styles/components/Home.module.css'
+import styles from '../styles/pages/Home.module.css'
 import { CountdownProvider } from '../contexts/CountdownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 import { MenuAside } from '../components/MenuAside';
@@ -36,7 +36,7 @@ export default function Home(props: HomeProps) {
         <MenuAside /> 
         <div className={styles.containerContent}>
           <Head>
-            <title>Inicio | Movie.IT</title>
+            <title>Inicio | PLB</title>
           </Head>
           
           <ExperienceBar />

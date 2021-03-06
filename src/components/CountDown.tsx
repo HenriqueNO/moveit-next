@@ -2,8 +2,6 @@ import { useContext } from 'react'
 import { CountdownContext } from '../contexts/CountdownContext'
 import styles from '../styles/components/CountDown.module.css'
 
-
-
 export function CountDown() {
     const {minutes, seconds, hasFinished, isActive, startCountdown, resetCountdown} = useContext(CountdownContext)
 
@@ -31,16 +29,18 @@ export function CountDown() {
             ): (
                 <>
                     {isActive? (
-                        <button 
-                            type='button' 
-                            className={
-                                `${styles.countdownButton}
-                                ${styles.countdownButtonActive}`
-                            } 
-                            onClick={resetCountdown}
-                        >
-                            Abandonar o ciclo
-                        </button>
+                        <>
+                            <button 
+                                type='button' 
+                                className={
+                                    `${styles.countdownButton}
+                                    ${styles.countdownButtonActive}`
+                                } 
+                                onClick={resetCountdown}
+                            >
+                                Abandonar o ciclo
+                            </button>
+                        </>
                     ): (
                         <button 
                             type='button' 

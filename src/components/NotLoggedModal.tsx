@@ -8,11 +8,11 @@ export function NotLoggedModal() {
 
     useEffect(() => {
         if (time <= 99) {
-            setTimeout(() => {
-                    setTime(time + 1)
-                }, 30)
+          setTimeout(() => {
+            setTime(time + 1)
+          }, 30)
         } else if (time === 100) {
-            Router.push('/')
+          Router.push('/')
         }
     }, [time])
 
@@ -24,9 +24,9 @@ export function NotLoggedModal() {
             <h1>Você não esta logado!</h1>
             <p>Voltando para pagina de <a href="/">login</a>.</p>
           </div>
-        <div>
-            <div style={{width: `${time}%`}} />
-        </div>
+          <div>
+              <div style={{width: `${time}%`}} />
+          </div>
         </div>
       )
 }

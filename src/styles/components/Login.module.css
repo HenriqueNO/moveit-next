@@ -3,6 +3,8 @@
     grid-template-rows: 1fr 1fr .8fr 1fr;
     color: var(--white);
     max-width: 450px;
+    align-content: flex-start;
+    justify-self: flex-start;
 }
 
 .container header{
@@ -28,7 +30,7 @@
     display: flex;
     width: 100%;
     
-    border: 1px solid var(--blue);
+
     border-radius: 10px;
     height: 5rem;
     

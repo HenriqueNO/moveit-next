@@ -1,8 +1,9 @@
 import { useSession } from "next-auth/client"
+import Head from "next/head"
 import { MenuAside } from "../components/MenuAside"
 import { NotLoggedModal } from "../components/NotLoggedModal"
 
-import styles from '../styles/components/Leaderboard.module.css'
+import styles from '../styles/pages/Leaderboard.module.css'
 
 export default function Leaderboard() {
     const [ session, loading ] = useSession()
@@ -14,8 +15,10 @@ export default function Leaderboard() {
     if(session) {
         return(
             <div>
+                <Head>
+                    <title>Leaderboard | PLB</title>
+                </Head>
                 <MenuAside />
-                
                 <div className={styles.container}>
                     <h1>Leaderboard</h1>
                     <div className={styles.leaderBoardContainer}>
