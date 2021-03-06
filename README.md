@@ -21,8 +21,8 @@
 ### Features
 
 - [x] Login with GitHub.
-- [ ] New theme(dark mode).
-- [ ] Lateral menu.
+- [x] New theme(dark mode).
+- [x] Lateral menu.
 - [ ] Leaderboard.
 - [ ] Share on social networks.
 - [ ] Responsiveness for mobile.
