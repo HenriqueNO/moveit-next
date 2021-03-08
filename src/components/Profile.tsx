@@ -7,8 +7,6 @@ export function Profile(){
   const [ session ] = useSession()
   const { myLevel } = useContext(ChallengesContext)
 
-  console.log(JSON.stringify(session))
-
   return (
     <div className={styles.profileContainer}>
       <img src={session.user.image} alt="Foto de perfil" />

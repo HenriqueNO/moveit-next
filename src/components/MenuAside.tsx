@@ -1,23 +1,14 @@
 import { signOut } from 'next-auth/client'
+import { getURL } from 'next/dist/next-server/lib/utils'
 import { useRouter } from 'next/router'
 import { useContext, useState } from 'react'
 import { ThemeContext } from '../contexts/ThemeContext'
 import styles from '../styles/components/MenuAside.module.css'
 
-interface MenuAsideProps {
-    theme: string,
-}
-
-export function MenuAside(props: MenuAsideProps) {
+export function MenuAside() {
     const router = useRouter()
     const { isDark, toggleTheme } = useContext(ThemeContext)
-
-    function GoHome() {
-        router.push('/Home')
-    }
-    function GoLeaderboard() {
-        router.push('/Leaderboard')
-    }
+    const currentUrl = getURL()
 
     return (
         <header className={styles.container}>
@@ -31,17 +22,17 @@ export function MenuAside(props: MenuAsideProps) {
             <button
                 type='button'
                 className={styles.buttonHome}
-                onClick={GoHome}
+                onClick={() => router.push('/Home')}
             >
-                <img src="/icons/home-true.svg" alt="home"/>
+                {currentUrl === '/Home' ? <img src="/icons/home-true.svg" alt="home"/> : <img src="/icons/home-false.svg" alt="home"/>}
             </button>
 
             <button
                 type='button' 
                 className={styles.buttonLeaderBoard}
-                onClick={GoLeaderboard}
-                >
-                    <img src="/icons/ranking-false.svg" alt="leaderboard"/>
+                onClick={() => router.push('/Leaderboard')}
+            >
+                {currentUrl === '/Leaderboard' ? <img src="/icons/leaderboard-true.svg" alt="home"/> : <img src="/icons/leaderboard-false.svg" alt="home"/>}
             </button>
 
             <button

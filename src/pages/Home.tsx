@@ -34,7 +34,7 @@ export default function Home(props: HomeProps) {
     <ChallengesProvider myLevel={props.myLevel} currentExperience={props.currentExperience} challengesCompleted={props.challengesCompleted}>
      
      <div className={styles.container}>
-        <MenuAside theme={props.lastTheme}/> 
+        <MenuAside /> 
         <div className={styles.containerContent}>
           <Head>
             <title>Inicio | PLB</title>
