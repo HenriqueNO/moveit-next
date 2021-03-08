@@ -4,10 +4,13 @@ import { useContext, useState } from 'react'
 import { ThemeContext } from '../contexts/ThemeContext'
 import styles from '../styles/components/MenuAside.module.css'
 
-export function MenuAside() {
+interface MenuAsideProps {
+    theme: string,
+}
+
+export function MenuAside(props: MenuAsideProps) {
     const router = useRouter()
     const { isDark, toggleTheme } = useContext(ThemeContext)
-
 
     function GoHome() {
         router.push('/Home')

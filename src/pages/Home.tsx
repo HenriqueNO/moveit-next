@@ -19,6 +19,7 @@ interface HomeProps {
   myLevel: number,
   currentExperience: number,
   challengesCompleted: number
+  lastTheme: string,
 }
 
 export default function Home(props: HomeProps) {
@@ -33,7 +34,7 @@ export default function Home(props: HomeProps) {
     <ChallengesProvider myLevel={props.myLevel} currentExperience={props.currentExperience} challengesCompleted={props.challengesCompleted}>
      
      <div className={styles.container}>
-        <MenuAside /> 
+        <MenuAside theme={props.lastTheme}/> 
         <div className={styles.containerContent}>
           <Head>
             <title>Inicio | PLB</title>
@@ -62,13 +63,14 @@ export default function Home(props: HomeProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { myLevel, currentExperience, challengesCompleted} = ctx.req.cookies;
+  const { myLevel, currentExperience, challengesCompleted, lastTheme} = ctx.req.cookies;
 
   return {
     props: {
       myLevel: Number(myLevel ?? 0),
       currentExperience: Number(currentExperience ?? 0),
       challengesCompleted: Number(challengesCompleted ?? 0),
+      lastTheme: lastTheme ?? 'normal',
     }
   }
 }
