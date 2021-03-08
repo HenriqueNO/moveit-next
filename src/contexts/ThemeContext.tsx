@@ -1,10 +1,11 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import normal from '../styles/theme/normal';
 import dark from '../styles/theme/dark';
-import { ThemeProvider } from "styled-components";
+import { DefaultTheme, ThemeProvider } from "styled-components";
 import Cookies from "js-cookie";
 
 interface ThemeContextData{
+    theme: DefaultTheme,
     isDark: boolean,
     toggleTheme: () => void,
     
@@ -12,7 +13,6 @@ interface ThemeContextData{
 
 interface ThemeContextProps {
     children: ReactNode
-    theme: string,
 }
 
 export const ThemeContext = createContext({} as ThemeContextData)
@@ -34,6 +34,7 @@ export function ThemeContextProvider({children} : ThemeContextProps) {
     return (
         <ThemeContext.Provider value={{
             isDark,
+            theme,
             toggleTheme
         }}>
             <ThemeProvider theme={theme}>
