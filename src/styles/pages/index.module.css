@@ -1,10 +1,8 @@
 .container {
     background: var(--blue);
-    height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: .5rem;
-    
 }
 
 .container > img {
@@ -12,9 +10,21 @@
     margin-left: -8%;
 }
 
+.container p {
+    font-size: 1.2rem;
+}
+
 .containerLogin {
     justify-self: center;
     align-self: center;
     max-height: 5rem;
+}
+
+@media (max-width: 1007px) {
+    .containerLogin {
+        order: -1;
+        z-index: 1;
+        transform: translateY(50%);
+    }
 
 }

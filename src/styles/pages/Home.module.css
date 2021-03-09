@@ -1,24 +1,23 @@
-/*.container {
-  display: grid;
-  grid-template-columns: 0.5fr 10fr;
-}*/
-
 .containerContent {
   height: 100vh;
   max-width: 992px;
+
   margin: 0 auto;
-  padding: 2.5rem 2rem;
-  margin-left: 15%;
+  padding: 1rem 1rem;
   display: flex;
   flex-direction: column;
 }
 
 .containerContent section {
   flex: 1;
-
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
   align-content: center;
 }
 
+@media (max-width: 780px) {
+  .containerContent {
+    max-width: 500px;
+  }
+}

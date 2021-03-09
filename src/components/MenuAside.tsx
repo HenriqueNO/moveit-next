@@ -23,6 +23,7 @@ export function MenuAside() {
                 type='button'
                 className={styles.buttonHome}
                 onClick={() => router.push('/Home')}
+                style={currentUrl === '/Home' ? {borderLeft: '4px solid var(--blue-dark)'}: {}}
             >
                 {currentUrl === '/Home' ? <img src="/icons/home-true.svg" alt="home"/> : <img src="/icons/home-false.svg" alt="home"/>}
             </button>
@@ -31,6 +32,7 @@ export function MenuAside() {
                 type='button' 
                 className={styles.buttonLeaderBoard}
                 onClick={() => router.push('/Leaderboard')}
+                style={currentUrl === '/Leaderboard' ? {borderLeft: '4px solid var(--blue-dark)'} : {}}
             >
                 {currentUrl === '/Leaderboard' ? <img src="/icons/leaderboard-true.svg" alt="home"/> : <img src="/icons/leaderboard-false.svg" alt="home"/>}
             </button>

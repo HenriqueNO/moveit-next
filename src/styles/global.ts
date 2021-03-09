@@ -26,17 +26,18 @@ export default createGlobalStyle`
 
 @media(max-width: 1080px) {
   html {
-    font-size: 93.75%;
+    font-size: 90%;
   }
 }
 
 @media(max-width: 720px) {
   html {
-    font-size: 87.5%;
+    font-size: 75%;
   }
 }
 
 body {
+
   background: var(--background);
   color: var(--text);
 }
@@ -46,6 +47,7 @@ input,
 textarea,
 button {
   font: 400 1rem 'Inter', sans-serif;
+  font-size: 1rem;
 }
 
 button {

@@ -30,18 +30,19 @@ export default function Home(props: HomeProps) {
   }
 
   if (session) {
-  return (
-    <ChallengesProvider myLevel={props.myLevel} currentExperience={props.currentExperience} challengesCompleted={props.challengesCompleted}>
-     
-     <div className={styles.container}>
-        <MenuAside /> 
-        <div className={styles.containerContent}>
+    return (
+      <ChallengesProvider 
+        myLevel={props.myLevel} 
+        currentExperience={props.currentExperience} 
+        challengesCompleted={props.challengesCompleted}
+      >
+        <MenuAside />
+        <div className={styles.containerContent}> 
           <Head>
             <title>Inicio | PLB</title>
           </Head>
           
           <ExperienceBar />
-
           <CountdownProvider>
             <section>
               <div>
@@ -54,10 +55,9 @@ export default function Home(props: HomeProps) {
               </div>
             </section>
           </CountdownProvider>
-      </div>
-    </div>
-  </ChallengesProvider>
-  )
+        </div>
+      </ChallengesProvider>
+    )
   }
   return <NotLoggedModal />
 }

@@ -10,7 +10,7 @@ export default {
         text: lighten(.7 ,'#666666'),
         text_highlight: lighten(.7, '#B3B9FF'),
         title: lighten(.7, '#2E384D'),
-        define_red: '#E83F5B',
+        define_red: shade(.2, '#E83F5B'),
         xp: '#4CD62B',
         blue_twitter: '#2aa9E0',
 
