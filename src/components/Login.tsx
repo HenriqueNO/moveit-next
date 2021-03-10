@@ -10,8 +10,7 @@ export function Login() {
     if(session) {
         Router.push('/Home')
     }
-    
-    
+       
     return (
         <div className={styles.container}>
             <img src="/icons/logo-app.svg" alt="logo Move.it"/>

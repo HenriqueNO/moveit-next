@@ -12,7 +12,7 @@ interface ThemeContextData{
 }
 
 interface ThemeContextProps {
-    children: ReactNode
+    children: ReactNode,
 }
 
 export const ThemeContext = createContext({} as ThemeContextData)
@@ -22,14 +22,14 @@ export function ThemeContextProvider({children} : ThemeContextProps) {
     const [theme, setTheme] = useState((lastTheme === 'normal' ? normal : dark))
     const [isDark, setIsDark] = useState(theme.tittle === 'normal' ? false : true)
 
-  function toggleTheme() {
-    setTheme(theme.tittle === 'normal' ? dark : normal)
-    setIsDark(isDark === false ? true : false)
-  }
+    function toggleTheme() {
+        setTheme(theme.tittle === 'normal' ? dark : normal)
+        setIsDark(isDark === false ? true : false)
+    }
 
-  useEffect(() => {
-      Cookies.set('lastTheme', theme.tittle)
-  }, [theme])
+    useEffect(() => {
+        Cookies.set('lastTheme', theme.tittle)
+    }, [theme])
 
     return (
         <ThemeContext.Provider value={{

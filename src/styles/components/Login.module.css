@@ -1,55 +1,61 @@
 .container {
     display: grid;
-    grid-template-rows: 1fr 1fr .8fr 1fr;
-    color: var(--white);
-    max-width: 450px;
-    align-content: flex-start;
-    justify-self: flex-start;
+    max-width: 300px;
+    width: auto;
+    grid-template-rows: repeat(auto-fit, minmax(15px, 1fr));
+    color: #fff;
 }
 
 .container header{
     font-weight: 800;
     font-size: 2rem;
-    margin: 1.5rem .5rem;
+    margin: 1rem .5rem;
 }
 
 .containerText {
-    display: grid;
-    grid-template-columns: .2fr 1fr;
+    display: flex;
     color: var(--text-highlight);
-    font-size: 20px;
-    margin-left: .2rem;
-    width: 70%;
+    margin-left: .1rem;
+    margin: 1rem;
 }
 
 .container p {
     margin-left: 0.3rem;
+    font-size: 1.3rem;
 }
 
 .containerLogin {
     display: flex;
-    width: 100%;
-    
-
-    border-radius: 10px;
-    height: 5rem;
-    
 }
 
 .containerLogin input {
-    min-width: 70%;
-    font-size: 20px;
-    color: var(--white);
-    border-radius: 10px 0 0 10px;
+    font-size: 1.3rem;
     background-image: linear-gradient(to right, var(--blue-light), var(--blue-dark));
+    border-radius: 10px 0 0 10px;
     border: hidden;
     padding: 1.5rem;
+    width: 70%;
 }
 
 .containerLogin button {
     background: var(--blue-dark);
-    width: 20%;
-    border: 1px solid var(--white);
+    border-left: 3px solid var(--blue);
     border-radius: 0 10px 10px 0;
     font-size: 0;
+    
+    max-width: 30%;
+    width: 6rem;
+}
+
+@media(max-width: 720px) {
+    .container {
+        padding: 10px;
+    }
+
+    .container > img {
+        max-width:250px;
+        max-height:150px;
+        width: auto;
+        height: auto;
+    }
 }
