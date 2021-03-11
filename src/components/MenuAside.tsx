@@ -34,7 +34,7 @@ export function MenuAside() {
 
                 <button
                     type='button' 
-                    className={styles.buttonLeaderBoard}
+                    className={styles.buttonLeaderboard}
                     onClick={() => router.push('/Leaderboard')}
                     style={currentUrl === '/Leaderboard' ? {borderLeft: '4px solid var(--blue-dark)'} : {}}
                 >

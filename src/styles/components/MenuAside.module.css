@@ -2,10 +2,10 @@
     height: 100vh;
 
     float:left;
-    min-height: 610px;
+
     
     display: grid;
-    grid-template-rows: 6fr .1fr .1fr 6fr;
+    grid-template-rows: repeat(auto-fit, minmax(10px, 1fr));
     align-items: center;
     justify-content: center;
     
@@ -44,4 +44,12 @@
 .container button:last-child {
     align-self: flex-end;
     margin-bottom: 1.5rem;
+}
+
+.buttonHome {
+    align-self: flex-end;
+}
+
+.buttonLeaderboard {
+    align-self: flex-start;
 }

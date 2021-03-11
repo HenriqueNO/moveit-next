@@ -10,7 +10,8 @@ export function CountDown() {
     
     return (
         <div>
-            <div className={styles.countdownContainer}>
+            {hasFinished ? (<div className={`${styles.countdownContainer} 
+                ${styles.countdownContainerDisabled}`}>
                 <div>
                     <span>{minuteLeft}</span>
                     <span>{minuteRight}</span>
@@ -20,7 +21,20 @@ export function CountDown() {
                     <span>{secondLeft}</span>
                     <span>{secondRight}</span>
                 </div>
-            </div>
+            </div>) : (
+                <div className={styles.countdownContainer}>
+                    <div>
+                        <span>{minuteLeft}</span>
+                        <span>{minuteRight}</span>
+                    </div>
+                    <span>:</span>
+                    <div>
+                        <span>{secondLeft}</span>
+                        <span>{secondRight}</span>
+                    </div>
+                </div>
+            )}
+            
 
             { hasFinished ? (
                 <button disabled className={styles.countdownButton}>
