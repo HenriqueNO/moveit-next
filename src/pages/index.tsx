@@ -13,6 +13,7 @@ export default function index(){
                    {"body: {background: #0037FF;}"}
                 </style>
             </Head>
+                <img src="icons/logoBig.svg" alt=""/>
             <div className={styles.containerLogin}>
                 <Login />
             </div>
