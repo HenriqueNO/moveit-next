@@ -23,9 +23,9 @@
 - [x] Login with GitHub.
 - [x] New theme(dark mode).
 - [x] Lateral menu.
-- [ ] Leaderboard.
+- [x] Leaderboard.
+- [x] Responsiveness for mobile.
 - [ ] Share on social networks.
-- [ ] Responsiveness for mobile.
 - [ ] PWA functionality.
 
 ### Prerequisites
@@ -80,7 +80,7 @@ Hey 👋 Get in touch!
 
 MIT License
 
-Copyright (c) <2020> Henrique Nunes
+Copyright (c) <2021> Henrique Nunes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
