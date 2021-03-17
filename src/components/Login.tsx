@@ -1,5 +1,6 @@
 import { signIn, useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 import styles from '../styles/components/Login.module.css'
 
@@ -22,9 +23,9 @@ export function Login() {
 
             <div className={styles.containerLogin}>
                 {!session && <><input placeholder="Digite seu username"></input> <br />
-                <button onClick={(): Promise<void> => signIn('github', {callbackUrl:"http://localhost:3000/Home"})}>
-                    <img src="/icons/arrow-right.svg" alt="GitHub"/>
-                </button></>}
+                    <button onClick={(): Promise<void> => signIn('github', {callbackUrl:"http://localhost:3000/Home"})}>
+                    <img src="/icons/arrow-right.svg" alt="Icone entrar"/>
+                    </button></> }
             </div>
         </div>
     )

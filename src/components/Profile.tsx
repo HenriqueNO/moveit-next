@@ -5,7 +5,7 @@ import styles from "../styles/components/Profile.module.css";
 
 export function Profile(){
   const [ session ] = useSession()
-  const { myLevel } = useContext(ChallengesContext)
+  const { level } = useContext(ChallengesContext)
 
   return (
     <div className={styles.profileContainer}>
@@ -15,7 +15,7 @@ export function Profile(){
 
         <p>
           <img src="icons/level.svg" alt="Level" />
-          Level {myLevel}
+          Level {level}
         </p>
       </div>
     </div>

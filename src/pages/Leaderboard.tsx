@@ -1,35 +1,83 @@
+import Cookies from "js-cookie"
+import { GetServerSideProps, GetStaticProps } from "next"
 import { useSession } from "next-auth/client"
 import Head from "next/head"
 import { MenuAside } from "../components/MenuAside"
 import { NotLoggedModal } from "../components/NotLoggedModal"
 
 import styles from '../styles/pages/Leaderboard.module.css'
+import { connectToDataBase } from "./api/_connectDatabase"
 
-export default function Leaderboard() {
-    const [ session, loading ] = useSession()
-    
-    if(loading) {
-        return <h1>carregando...</h1>
+interface leaderBoardProps {
+  properties: {
+    name: string,
+    challengesCompleted: string,
+    currentExperience: string,
+    map: Function,
     }
+}
 
-    if(session) {
-        return(
-            <div>
-                <Head>
-                    <title>Leaderboard | PLB</title>
-                </Head>
-                <MenuAside />
-                <div className={styles.container}>
-                    <h1>Leaderboard</h1>
-                    <div className={styles.leaderBoardContainer}>
-                        <label className={styles.position}>Posição</label>
-                        <label className={styles.user}>Usuario</label>
-                        <label className={styles.nChallenges}>Desafios</label>
-                        <label className={styles.experence}>Experiência</label>
+export default function Leaderboard(props: leaderBoardProps) {
+  const [ session, loading ] = useSession()
+
+  if(loading) {
+    return <h1>carregando...</h1>
+  }
+
+if(session) {
+  return(
+    <div>
+      <Head>
+        <title>Leaderboard | PLB</title>
+      </Head>
+      <MenuAside />
+      <div className={styles.container}>
+        <h1>Leaderboard</h1>
+        <div className={styles.leaderBoardContainer}>
+          <div className={styles.tableIndex}> 
+            <label className={styles.position}>Posição</label>
+            <label >Usuario</label>
+            <label className={styles.nChallenges}>Desafios</label>
+            <label className={styles.experience}>Experiência</label>
+          </div>
+          {props.properties.map((e, i : number) => {
+            while( i < 6) {
+              return (
+                <div key={i} className={styles.tableData}>
+                  <p className={styles.id}>{i + 1}</p>
+                  <div className={styles.user}>
+                    <img src={e.image} alt="foto de perfil"/>
+                    <div>
+                      <strong>{e.name}</strong>
+                      <p>
+                        <img src="/icons/level.svg" alt="icone de level"/>  Level {e.level}
+                      </p>
                     </div>
+                  </div>
+                  <p>{e.challengesCompleted} completados</p>
+                  <p>{e.currentExperience} xp</p>
                 </div>
-                </div>
-        )
-    }
-    return <NotLoggedModal />
+              )}
+          })}
+        </div>
+      </div>
+    </div>
+  )
+}
+return <NotLoggedModal />
+}
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const db = await connectToDataBase(process.env.MONGODB_URI)
+
+  const data = (await db.collection('data').find({ }, { projection: {_id: 0, email: 0}}).toArray()).sort()
+
+  const properties = JSON.parse(JSON.stringify(data))
+
+  return{
+    props: {
+      properties : properties
+    },
+    revalidate: 20,
+  }
 }

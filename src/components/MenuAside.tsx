@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { useContext} from 'react'
 import { ThemeContext } from '../contexts/ThemeContext'
 import styles from '../styles/components/MenuAside.module.css'
+import Link from 'next/link'
 
 export function MenuAside() {
     const currentUrl = getURL()
@@ -12,17 +13,20 @@ export function MenuAside() {
 
     return (
             <header className={styles.container}>
+
+                <Link href='/'>
                 <button 
                     type="button"
                     onClick={(): Promise<void> => signOut({callbackUrl: 'http://localhost:3000'})}
                 >
                     <img src="/icons/close.svg" alt="fechar"/>
                 </button>
-
+                </Link>
+                
+                <Link href="/Home">
                 <button
                     type='button'
                     className={styles.buttonHome}
-                    onClick={() => router.push('/Home')}
                     style={currentUrl === '/Home' ? {borderLeft: '4px solid var(--blue-dark)'}: {}}
                 >
                     {
@@ -31,11 +35,12 @@ export function MenuAside() {
                         <img src="/icons/home-false.svg" alt="home"/>
                     }
                 </button>
+                </Link>
 
+                <Link href='/Leaderboard'>
                 <button
                     type='button' 
                     className={styles.buttonLeaderboard}
-                    onClick={() => router.push('/Leaderboard')}
                     style={currentUrl === '/Leaderboard' ? {borderLeft: '4px solid var(--blue-dark)'} : {}}
                 >
                     {
@@ -44,6 +49,7 @@ export function MenuAside() {
                         <img src="/icons/leaderboard-false.svg" alt="home"/>
                     }
                 </button>
+                </Link>
 
                 <button
                     type='button'

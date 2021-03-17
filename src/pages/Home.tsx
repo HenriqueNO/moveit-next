@@ -7,16 +7,16 @@ import { ExperienceBar } from "../components/ExperienceBar";
 import { Profile } from '../components/Profile';
 import { ChallengeBox } from '../components/ChallengeBox';
 
-
 import styles from '../styles/pages/Home.module.css'
 import { CountdownProvider } from '../contexts/CountdownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 import { MenuAside } from '../components/MenuAside';
-import { useSession } from 'next-auth/client';
+import { getSession, useSession } from 'next-auth/client';
 import { NotLoggedModal } from '../components/NotLoggedModal';
+import { connectToDataBase } from './api/_connectDatabase';
 
 interface HomeProps {
-  myLevel: number,
+  level: number,
   currentExperience: number,
   challengesCompleted: number
   lastTheme: string,
@@ -24,6 +24,7 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
   const [ session, loading ] = useSession()
+
   
   if(loading) {
     return <h1>carregando...</h1>
@@ -32,9 +33,10 @@ export default function Home(props: HomeProps) {
   if (session) {
     return (
       <ChallengesProvider 
-        myLevel={props.myLevel} 
+        level={props.level} 
         currentExperience={props.currentExperience} 
         challengesCompleted={props.challengesCompleted}
+        user={session.user}
       >
         <MenuAside />
         <div className={styles.containerContent}> 
@@ -59,17 +61,35 @@ export default function Home(props: HomeProps) {
       </ChallengesProvider>
     )
   }
-  return <NotLoggedModal />
+  else if (!session) {
+    return <NotLoggedModal />
+  }
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { myLevel, currentExperience, challengesCompleted, lastTheme} = ctx.req.cookies;
+  const session = await getSession(ctx)
+  const { lastTheme } = ctx.req.cookies
+  const db = await connectToDataBase(process.env.MONGODB_URI)
+  const collection = db.collection('data')
 
-  return {
+  if(!await collection.findOne({name: session.user.name})) {
+    await collection.insertOne({
+      name: session.user.name,
+      email: session.user.email,
+      image: session.user.image,
+    })
+  }
+  
+  const data = (await collection.findOne({name: session.user.name}, { projection: {_id: 0, email: 0}}))
+  const properties = JSON.parse(JSON.stringify(data))
+  
+  
+  ctx.res.setHeader('Cache-Control', 's-manage=10, stale-while-revalidate')
+  return{
     props: {
-      myLevel: Number(myLevel ?? 0),
-      currentExperience: Number(currentExperience ?? 0),
-      challengesCompleted: Number(challengesCompleted ?? 0),
+      level: Number(properties.level ?? 0),
+      currentExperience: Number(properties.currentExperience ?? 0),
+      challengesCompleted: Number(properties.challengesCompleted ?? 0),
       lastTheme: lastTheme ?? 'normal',
     }
   }
