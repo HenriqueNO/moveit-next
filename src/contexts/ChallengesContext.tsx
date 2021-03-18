@@ -29,6 +29,7 @@ interface ChallengesProviderProps {
     currentExperience: number,
     challengesCompleted: number
     user: object,
+    totalExperience: number,
 }
 
 export const ChallengesContext = createContext({} as ChallengesContextData) 
@@ -37,6 +38,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     const [level, setMyLevel] = useState(rest.level)
     const [currentExperience, setCurrentExperience] = useState(rest.currentExperience)
     const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted)
+    const [totalExperience, setTotalExperience] = useState(rest.totalExperience)
     
     const [activeChallenge, setActiveChallenge] = useState(null)
     const [isLevelModalOpen, setIsLevelModalOpen] = useState(false)
@@ -48,7 +50,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     }, [])
     
     useEffect(() => {
-        axios.post('/api/data', {...rest.user, level, currentExperience, challengesCompleted})
+        axios.post('/api/data', {...rest.user, level, currentExperience, challengesCompleted, totalExperience})
     }, [challengesCompleted])
 
     function levelUp() {
@@ -87,6 +89,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
         const { amount } = activeChallenge
 
         let finalExperience = currentExperience + amount
+        setTotalExperience(totalExperience + amount)
 
         if (finalExperience >= experienceToNextLevel) {
             finalExperience = finalExperience - experienceToNextLevel

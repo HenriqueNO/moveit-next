@@ -18,7 +18,8 @@ import { connectToDataBase } from './api/_connectDatabase';
 interface HomeProps {
   level: number,
   currentExperience: number,
-  challengesCompleted: number
+  challengesCompleted: number,
+  totalExperience: number,
   lastTheme: string,
 }
 
@@ -33,16 +34,17 @@ export default function Home(props: HomeProps) {
   if (session) {
     return (
       <ChallengesProvider 
-        level={props.level} 
-        currentExperience={props.currentExperience} 
-        challengesCompleted={props.challengesCompleted}
-        user={session.user}
+      level={props.level} 
+      currentExperience={props.currentExperience} 
+      challengesCompleted={props.challengesCompleted}
+      totalExperience={props.totalExperience}
+      user={session.user}
       >
+        <Head>
+          <title>Inicio | PLB</title>
+        </Head>
         <MenuAside />
         <div className={styles.containerContent}> 
-          <Head>
-            <title>Inicio | PLB</title>
-          </Head>
           
           <ExperienceBar />
           <CountdownProvider>
@@ -75,7 +77,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   if(!await collection.findOne({name: session.user.name})) {
     await collection.insertOne({
       name: session.user.name,
-      email: session.user.email,
       image: session.user.image,
     })
   }
@@ -90,6 +91,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       level: Number(properties.level ?? 0),
       currentExperience: Number(properties.currentExperience ?? 0),
       challengesCompleted: Number(properties.challengesCompleted ?? 0),
+      totalExperience: Number(properties.totalExperience ?? 0),
       lastTheme: lastTheme ?? 'normal',
     }
   }

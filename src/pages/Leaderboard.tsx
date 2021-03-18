@@ -1,5 +1,4 @@
-import Cookies from "js-cookie"
-import { GetServerSideProps, GetStaticProps } from "next"
+import { GetStaticProps } from "next"
 import { useSession } from "next-auth/client"
 import Head from "next/head"
 import { MenuAside } from "../components/MenuAside"
@@ -11,8 +10,10 @@ import { connectToDataBase } from "./api/_connectDatabase"
 interface leaderBoardProps {
   properties: {
     name: string,
+    image: string,
     challengesCompleted: string,
     currentExperience: string,
+    totalExperience: string,
     map: Function,
     }
 }
@@ -55,7 +56,7 @@ if(session) {
                     </div>
                   </div>
                   <p>{e.challengesCompleted} completados</p>
-                  <p>{e.currentExperience} xp</p>
+                  <p>{e.totalExperience} xp</p>
                 </div>
               )}
           })}
@@ -70,7 +71,7 @@ return <NotLoggedModal />
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const db = await connectToDataBase(process.env.MONGODB_URI)
 
-  const data = (await db.collection('data').find({ }, { projection: {_id: 0, email: 0}}).toArray()).sort()
+  const data = (await db.collection('data').find({ }, { projection: {_id: 0, currentExperience: 0}}).toArray()).sort()
 
   const properties = JSON.parse(JSON.stringify(data))
 
@@ -78,6 +79,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     props: {
       properties : properties
     },
-    revalidate: 20,
+    revalidate: 30,
   }
 }
