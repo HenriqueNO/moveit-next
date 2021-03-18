@@ -44,19 +44,25 @@ if(session) {
           {props.properties.map((e, i : number) => {
             while( i < 6) {
               return (
-                <div key={i} className={styles.tableData}>
-                  <p className={styles.id}>{i + 1}</p>
-                  <div className={styles.user}>
-                    <img src={e.image} alt="foto de perfil"/>
+                <div key={i} className={styles.tableDataContainer}>
+                  <div className={styles.tableDataUser}>
                     <div>
-                      <strong>{e.name}</strong>
-                      <p>
-                        <img src="/icons/level.svg" alt="icone de level"/>  Level {e.level}
-                      </p>
+                    <p>{i + 1}</p>
+                    </div>
+                    <div className={styles.user}>
+                      <div>
+                        <img src={e.image} alt="foto perfil" width="64"/>
+                        <div>
+                          <strong>{e.name}</strong>
+                          <p>
+                            <img src="/icons/level.svg" alt="level"/> Level {e.level}
+                          </p>
+                        </div>
+                      </div>
+                      <p>{e.challengesCompleted}</p>
+                      <p>{e.totalExperience}</p>
                     </div>
                   </div>
-                  <p>{e.challengesCompleted} completados</p>
-                  <p>{e.totalExperience} xp</p>
                 </div>
               )}
           })}

@@ -11,92 +11,107 @@
 
 .tableIndex {
   display: grid; 
-  grid-template-columns: minmax(30px, .3fr) minmax(30px, 2fr) minmax(80px, 1fr) minmax(40px, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(4rem, .25fr) minmax(6rem, 1fr) minmax(1rem, .5fr) minmax(40px, .5fr));
   font-weight: 500;
   font-variant-caps: all-small-caps;
   font-size: 1.2rem;
   color: var(--text);
+  justify-content: center;
 
+  
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.tableData {
-  display: grid;
-  grid-template-columns: minmax(30px, .3fr) minmax(30px, 2fr) minmax(80px, 1fr) minmax(40px, 1fr);
-  margin-top: 5px;
-  background: var(--white);
-  border-radius: 8px;
-
-  align-items: center;
+.nChallenges {
+  text-align: center;
 }
 
-.id  {
+.experience {
+  text-align: center;
+}
+
+.tableIndex label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.tableDataContainer {
+  margin-top: 5px;
+}
+
+.tableDataUser {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, .1fr) minmax(50px, 1fr));
+  gap: 4px;
+}
+
+.tableDataUser > div:first-child {
+  display: grid;
+  background: var(--white);
+  border-radius: 8px 0px 0px 8px;
+}
+
+.tableDataUser > div p {
   justify-self: center;
   align-self: center;
-  font-weight: 500;
-  font-size: 1.5rem;
 }
 
 .user {
-  border-left: 4px solid var(--background);
-  padding: .5rem;
   display: grid;
-  grid-template-columns: 64px 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr) minmax(30px, .5fr) minmax(20px, .5fr));
+  padding: .5rem;
+  border-radius: 0px 8px 8px 0px;
+  align-items: center;
   
+  background: var(--white);
+}
+
+.user > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 5rem minmax(64px, 1fr));
+}
+
+.user div div {
+  min-width: 80px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.user img {
-  max-width: 64px;
-  max-height: 64px;
+.user div div strong {
+  font-weight: 600;
+  font-size: 1.2rem;
+  width: fit-content;
 }
 
-.user > div {
-  margin-left: .8rem;
-  align-self: center;
-  
+.user div div p {
+  display: flex;
+  align-items: center;
 }
 
-.user strong {
-  font-size: 1.3rem;
-}
-
-.user > img {
-  float: left;
+.user div > img {
   border-radius: 50%;
+  width: auto;
+  height: auto;
+  max-width: 60px;
+  max-height: 60px;
 }
 
-@media (max-width: 540px) {
-  .leaderBoardContainer {
-    font-size: 1rem;
-  }
-
-  .tableIndex {
-    font-size: 1rem;
-  }
-
-  .tableData p {
-    overflow-x: hidden;
-  }
-
-  .user {
-    grid-template-columns: 1fr
+@media (max-width: 600px) {
+  .container {
+    padding: 2rem 1rem
   }
   
-  .user strong {
-    font-size: 1.1rem;
-  }
-  
-  .user > img {
-    display: none;
+  .user div > img {
+    display: none
   }
 
   .user div img {
-    max-width: 10px;
-    max-height: 10px;
+    width: 10px;
+    height: 10px;
   }
 }
