@@ -34,13 +34,17 @@ if(session) {
       <MenuAside />
       <div className={styles.container}>
         <h1>Leaderboard</h1>
+
         <div className={styles.leaderBoardContainer}>
           <div className={styles.tableIndex}> 
             <label className={styles.position}>Posição</label>
-            <label >Usuario</label>
-            <label className={styles.nChallenges}>Desafios</label>
-            <label className={styles.experience}>Experiência</label>
+            <div>
+              <label >Usuario</label>
+              <label className={styles.nChallenges}>Desafios Completos</label>
+              <label className={styles.experience}>Experiência</label>
+            </div>
           </div>
+
           {props.properties.map((e, i : number) => {
             while( i < 6) {
               return (

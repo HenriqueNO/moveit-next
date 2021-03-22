@@ -9,9 +9,13 @@
   color: var(--title);
 }
 
+.leaderBoardContainer {
+  margin-top: 1rem;
+}
+
 .tableIndex {
   display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(4rem, .25fr) minmax(6rem, 1fr) minmax(1rem, .5fr) minmax(40px, .5fr));
+  grid-template-columns: repeat(auto-fit, minmax(40px, .1fr) minmax(50px, 1fr));
   font-weight: 500;
   font-variant-caps: all-small-caps;
   font-size: 1.2rem;
@@ -22,6 +26,11 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.tableIndex > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr) minmax(30px, .5fr) minmax(20px, .5fr));
 }
 
 .nChallenges {

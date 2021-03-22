@@ -20,6 +20,7 @@ export function ChallengeBox() {
     return (
         <div className={styles.challengeBoxContainer}>
             { activeChallenge ? (
+                <>
                 <div className={styles.challengeActive}>
                     <header>Ganhe {activeChallenge.amount}</header>
 
@@ -29,6 +30,7 @@ export function ChallengeBox() {
                         <p>{activeChallenge.description}</p>
                     </main>
 
+                </div>
                     <footer>
                         <button type='button' className={styles.challengeFailedButton}
                         onClick={handleChallengeFailed} >
@@ -40,7 +42,7 @@ export function ChallengeBox() {
                             Botei pra mamar
                         </button>
                     </footer>
-                </div>
+                </>
             ) : (
                 <div className={styles.challengeBoxNotActive}>
                 <strong>Finalize um ciclo para receber um desafio</strong>
