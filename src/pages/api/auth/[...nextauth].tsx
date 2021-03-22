@@ -1,7 +1,6 @@
-import { NextApiResponse } from 'next'
+import { NextApiRequest, NextApiResponse } from 'next'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
-import { NextApiRequest } from 'next-auth/_utils'
 
 const options = {
     providers: [

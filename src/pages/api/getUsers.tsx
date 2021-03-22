@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next-auth/_utils'
+import { NextApiRequest, NextApiResponse } from 'next'
 import { connectToDataBase } from './_connectDatabase'
 
 export default async (req : NextApiRequest, res: NextApiResponse) => {
