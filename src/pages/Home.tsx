@@ -74,6 +74,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const db = await connectToDataBase(process.env.MONGODB_URI)
   const collection = db.collection('data')
 
+  if(!session) {
+    return {props: {}}
+  }
+
   if(!await collection.findOne({name: session.user.name})) {
     await collection.insertOne({
       name: session.user.name,
