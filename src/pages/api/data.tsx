@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { finished } from "node:stream";
 import { connectToDataBase } from './_connectDatabase'
 
 interface data {
@@ -11,29 +12,22 @@ interface data {
 }
 
 export default async (req: NextApiRequest, res : NextApiResponse) => {
-    const { name, image, level, currentExperience, challengesCompleted, totalExperience } : data = req.body
+    const { name, image, level, currentExperience, challengesCompleted, totalExperience } : data = await req.body
 
     const db = await connectToDataBase(process.env.MONGODB_URI)
     const collection = db.collection('data')
     const document = await collection.findOne({name: name})
 
-    if(!document) {
-        await collection.insertOne({
-            name: name,
-            image: image,
-            level: level ?? 0,
-            currentExperience: currentExperience ?? 0,
-            challengesCompleted: challengesCompleted ?? 0,
-            totalExperience: totalExperience ?? 0
-
-        })
-    } else if (document) {
+    if (document) {
         await db.collection('data').findOneAndUpdate({name: name}, {$set: {
             level: level,
             currentExperience: currentExperience,
             challengesCompleted: challengesCompleted,
             totalExperience: totalExperience,
         }})
+        res.status(201)
+    } else {
+        res.status(204)
     }
-    return res.status(201)
+   return res.end()
 }
