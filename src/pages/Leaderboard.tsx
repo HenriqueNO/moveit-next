@@ -81,7 +81,12 @@ return <NotLoggedModal />
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const db = await connectToDataBase(process.env.MONGODB_URI)
 
-  const data = (await db.collection('data').find({ }, { projection: {_id: 0, currentExperience: 0}}).toArray()).sort()
+  const data = await (
+    await db.collection('data')
+    .find({ }, { projection: {_id: 0, email: 0}})
+    .sort({challengesCompleted: -1, totalExperience: -1})
+    .toArray()
+  )
 
   const properties = JSON.parse(JSON.stringify(data))
 

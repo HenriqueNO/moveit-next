@@ -5,6 +5,7 @@ import { useContext} from 'react'
 import { ThemeContext } from '../contexts/ThemeContext'
 import styles from '../styles/components/MenuAside.module.css'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function MenuAside() {
     const currentUrl = getURL()
@@ -23,21 +24,25 @@ export function MenuAside() {
                 </button>
                 </Link>
                 
-                <Link href="/Home">
+
                 <button
                     type='button'
                     className={styles.buttonHome}
                     style={currentUrl === '/Home' ? {borderLeft: '4px solid var(--blue-dark)'}: {}}
+                    
                 >
                     {
                         currentUrl === '/Home' ? 
-                        <img src="/icons/home-true.svg" alt="home"/> : 
-                        <img src="/icons/home-false.svg" alt="home"/>
+                        <img src="/icons/home-true.svg" alt="home"/> : (
+                            <Link href={'/Home'}> 
+                            <img src="/icons/home-false.svg" alt="home" width="32" height="32"/>
+                            </Link>
+                        )
                     }
                 </button>
-                </Link>
 
-                <Link href='/Leaderboard'>
+
+               
                 <button
                     type='button' 
                     className={styles.buttonLeaderboard}
@@ -45,11 +50,14 @@ export function MenuAside() {
                 >
                     {
                         currentUrl === '/Leaderboard' ?
-                        <img src="/icons/leaderboard-true.svg" alt="home"/> :
-                        <img src="/icons/leaderboard-false.svg" alt="home"/>
+                        <img src="/icons/leaderboard-true.svg" alt="home"/> :( 
+                            <Link href={"/Leaderboard"}>
+                                <img src="/icons/leaderboard-false.svg" alt="home" width="32" height="32"/>
+                            </Link>
+                        )
                     }
                 </button>
-                </Link>
+               
 
                 <button
                     type='button'

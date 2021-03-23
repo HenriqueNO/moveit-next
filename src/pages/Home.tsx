@@ -83,13 +83,15 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       name: session.user.name,
       image: session.user.image,
     })
+
+    ctx.res.end()
   }
   
   const data = (await collection.findOne({name: session.user.name}, { projection: {_id: 0, email: 0}}))
   const properties = JSON.parse(JSON.stringify(data))
   
   
-  ctx.res.setHeader('Cache-Control', 's-manage=10, stale-while-revalidate')
+  ctx.res.setHeader('Cache-Control', 's-manage=30, stale-while-revalidate')
   return{
     props: {
       level: Number(properties.level ?? 0),
