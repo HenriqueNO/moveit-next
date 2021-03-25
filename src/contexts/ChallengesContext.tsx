@@ -16,7 +16,7 @@ interface ChallengesContextData {
     challengesCompleted: number,
     activeChallenge: Challenge,
     experienceToNextLevel: number,
-    levelUp: () => void,
+
     startNewChallenge: () => void,
     completeChallenge: () => void,
     resetChallenge: () => void,
@@ -35,7 +35,7 @@ interface ChallengesProviderProps {
 export const ChallengesContext = createContext({} as ChallengesContextData) 
 
 export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps) {
-    const [level, setMyLevel] = useState(rest.level)
+    const [level, setLevel] = useState(rest.level)
     const [currentExperience, setCurrentExperience] = useState(rest.currentExperience)
     const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted)
     const [totalExperience, setTotalExperience] = useState(rest.totalExperience)
@@ -43,7 +43,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     const [activeChallenge, setActiveChallenge] = useState(null)
     const [isLevelModalOpen, setIsLevelModalOpen] = useState(false)
 
-    const experienceToNextLevel = Math.pow((level + 1) * 4, 2)
+    let experienceToNextLevel = Math.pow((level + 1) * 6, 2)
 
     useEffect(() => {
         Notification.requestPermission()
@@ -53,8 +53,15 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
         axios.post('/api/data', {...rest.user, level, currentExperience, challengesCompleted, totalExperience})
     }, [challengesCompleted])
 
+    useEffect(() => {
+        if (currentExperience >= experienceToNextLevel) {
+            setCurrentExperience(currentExperience - experienceToNextLevel)
+            setLevel(level + 1)
+        }
+    }, [currentExperience])
+
     function levelUp() {
-      setMyLevel(level + 1)
+      setLevel(level + 1)
       setIsLevelModalOpen(true)
     }
 
@@ -85,7 +92,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
         if (!activeChallenge) {
             return;
         }
-
+        
         const { amount } = activeChallenge
 
         let finalExperience = currentExperience + amount
@@ -97,7 +104,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
         }
 
         setCurrentExperience(finalExperience)
-        setActiveChallenge(null);
+        setActiveChallenge(null)
         setChallengesCompleted(challengesCompleted + 1)
     }
 
@@ -107,7 +114,6 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
         challengesCompleted,
         activeChallenge,
         experienceToNextLevel,
-        levelUp,
         startNewChallenge,
         completeChallenge,
         resetChallenge,

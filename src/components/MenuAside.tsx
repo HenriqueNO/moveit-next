@@ -5,11 +5,9 @@ import { useContext} from 'react'
 import { ThemeContext } from '../contexts/ThemeContext'
 import styles from '../styles/components/MenuAside.module.css'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export function MenuAside() {
     const currentUrl = getURL()
-    const router = useRouter()
     const { isDark, toggleTheme } = useContext(ThemeContext)
 
     return (

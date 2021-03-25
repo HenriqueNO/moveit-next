@@ -5,8 +5,6 @@ interface BartTimeProps {
 }
 
 export function BarTime(props: BartTimeProps) {
-
-    console.log(props)
     return (
         <div className={styles.container}>
         <div>
