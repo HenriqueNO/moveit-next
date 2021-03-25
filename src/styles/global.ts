@@ -24,6 +24,12 @@ export default createGlobalStyle`
   --blue-light: ${props => props.theme.colors.fifth};
 }
 
+@media(min-width: 2080px) {
+  html {
+    font-size: 150%;
+  }
+}
+ 
 @media(max-width: 1080px) {
   html {
     font-size: 90%;

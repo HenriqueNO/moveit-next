@@ -1,6 +1,5 @@
 import { signOut } from 'next-auth/client'
 import { getURL } from 'next/dist/next-server/lib/utils'
-import { useRouter } from 'next/router'
 import { useContext} from 'react'
 import { ThemeContext } from '../contexts/ThemeContext'
 import styles from '../styles/components/MenuAside.module.css'
@@ -18,7 +17,7 @@ export function MenuAside() {
                     type="button"
                     onClick={(): Promise<void> => signOut({callbackUrl: 'http://localhost:3000'})}
                 >
-                    <img src="/icons/close.svg" alt="fechar"/>
+                    <img src="/icons/close.svg" alt="logout"/>
                 </button>
                 </Link>
                 
