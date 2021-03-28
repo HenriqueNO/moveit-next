@@ -41,7 +41,7 @@ export default function Home(props: HomeProps) {
       user={session.user}
       >
         <Head>
-          <title>Inicio | PLB</title>
+          <title>Inicio | PBL</title>
         </Head>
         <MenuAside />
         <div className={styles.containerContent}> 
@@ -75,7 +75,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const collection = db.collection('data')
 
   if(!session) {
-    return {props: {}}
+    return {
+      props: {}
+    }
   }
 
   if(!await collection.findOne({name: session.user.name})) {

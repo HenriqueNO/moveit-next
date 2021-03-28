@@ -12,10 +12,10 @@ export default {
         xp: '#4CD62B',
         blue_twitter: '#2aa9E0',
 
-        primary: '#0C00E0',
-        secundary: '#7B00F0',
-        third: '#3A00CC',
-        fourth: '#0037FF',
-        fifth: '#0060F0',
+        primary: '#5000F0',
+        secundary: '#2A00FA',
+        third: '#0001E0',
+        fourth: '#0C32F7',
+        fifth: '#0C54ED',
     },
 }

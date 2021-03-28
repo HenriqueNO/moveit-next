@@ -29,7 +29,7 @@ if(session) {
   return(
     <div>
       <Head>
-        <title>Leaderboard | PLB</title>
+        <title>Leaderboard | PBL</title>
       </Head>
       <MenuAside />
       <div className={styles.container}>
@@ -81,7 +81,7 @@ return <NotLoggedModal />
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const db = await connectToDataBase(process.env.MONGODB_URI)
 
-  const data = await (
+  const data = (
     await db.collection('data')
     .find({ }, { projection: {_id: 0, email: 0}})
     .sort({challengesCompleted: -1, totalExperience: -1})

@@ -8,10 +8,7 @@ export default function index(){
     return(
         <div className={styles.container}>
             <Head>
-                <title>Login | PLB</title>
-                <style>
-                   {"body: {background: #0037FF;}"}
-                </style>
+                <title>Login | PBL</title>
             </Head>
                 <img src="icons/logoBig.svg" alt=""/>
             <div className={styles.containerLogin}>

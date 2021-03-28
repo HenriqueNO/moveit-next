@@ -1,5 +1,5 @@
 .container {
-    background-color: var(--blue);
+    background-image: linear-gradient(to bottom, var(--blue-light), var(--blue) 50%, var(--blue-dark) 85%, var(--purple-dark));
     height: 100vh;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));

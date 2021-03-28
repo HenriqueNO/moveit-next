@@ -4,6 +4,7 @@ import { useContext} from 'react'
 import { ThemeContext } from '../contexts/ThemeContext'
 import styles from '../styles/components/MenuAside.module.css'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function MenuAside() {
     const currentUrl = getURL()
@@ -17,7 +18,7 @@ export function MenuAside() {
                     type="button"
                     onClick={(): Promise<void> => signOut({callbackUrl: 'http://localhost:3000'})}
                 >
-                    <img src="/icons/close.svg" alt="logout"/>
+                    <Image src="/icons/close.svg" alt="logout" width="32" height="32"/>
                 </button>
                 </Link>
                 
@@ -32,7 +33,7 @@ export function MenuAside() {
                         currentUrl === '/Home' ? 
                         <img src="/icons/home-true.svg" alt="home"/> : (
                             <Link href={'/Home'}> 
-                            <img src="/icons/home-false.svg" alt="home" width="32" height="32"/>
+                            <a><Image priority src="/icons/home-false.svg" alt="home" width="32" height="32"/></a>
                             </Link>
                         )
                     }
@@ -49,7 +50,7 @@ export function MenuAside() {
                         currentUrl === '/Leaderboard' ?
                         <img src="/icons/leaderboard-true.svg" alt="home"/> :( 
                             <Link href={"/Leaderboard"}>
-                                <img src="/icons/leaderboard-false.svg" alt="home" width="32" height="32"/>
+                                <a><Image priority src="/icons/leaderboard-false.svg" alt="home" width="32" height="32"/></a>
                             </Link>
                         )
                     }
@@ -63,8 +64,8 @@ export function MenuAside() {
                 >
                     {
                         isDark ?
-                        <img src="/icons/moon.svg" alt="lua"/> :
-                        <img src="/icons/sun.svg" alt="Sol"/>
+                        <Image src="/icons/moon.svg" alt="lua" width="32" height="32"/> :
+                        <Image src="/icons/sun.svg" alt="Sol" width="32" height="32"/>
                     }
                 </button>
             </header>

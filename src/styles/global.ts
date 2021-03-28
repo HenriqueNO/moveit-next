@@ -17,16 +17,17 @@ export default createGlobalStyle`
   --red: ${props => props.theme.colors.define_red};
   --green: ${props => props.theme.colors.xp};
   --blue-twitter: ${props => props.theme.colors.blue_twitter};
-  --blue-dark: ${props => props.theme.colors.primary};
-  --purple: ${props => props.theme.colors.secundary};
-  --purble-dark: ${props => props.theme.colors.third};
+
+  --purple: ${props => props.theme.colors.primary};
+  --purple-dark: ${props => props.theme.colors.secundary};
+  --blue-dark: ${props => props.theme.colors.third};
   --blue: ${props => props.theme.colors.fourth};
   --blue-light: ${props => props.theme.colors.fifth};
 }
 
 @media(min-width: 2080px) {
   html {
-    font-size: 150%;
+    font-size: 120%;
   }
 }
  

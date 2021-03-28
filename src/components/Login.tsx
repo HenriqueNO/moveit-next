@@ -8,7 +8,7 @@ export function Login() {
     const Router = useRouter()
 
     if(session) {
-        Router.push('/Home')
+        Router.replace('/Home')
     }
        
     return (
@@ -16,14 +16,17 @@ export function Login() {
             <img src="/icons/logo-app.svg" alt="logo Move.it"/>
             <header>Bem-vindo</header>
             <div className={styles.containerText}>
-                <img src="/icons/gitLogo.svg" alt="GitHub"/>
-                <p>Faça login com seu Github para começar.</p>
+                <p>Escolha uma opção de login para continuar</p>
             </div>
 
             <div className={styles.containerLogin}>
-                {!session && <><input placeholder="Digite seu username"></input> <br />
+                {!session && <>
                     <button onClick={(): Promise<void> => signIn('github', {callbackUrl:"/Home"})}>
-                    <img src="/icons/arrow-right.svg" alt="Icone entrar"/>
+                    <img src="/icons/github-icon.svg" alt="login github"/>
+                    </button></> }
+                {!session && <>
+                    <button onClick={(): Promise<void> => signIn('google', {callbackUrl:"/Home"})}>
+                    <img src="/icons/google-icon.svg" alt="login google"/>
                     </button></> }
             </div>
         </div>
