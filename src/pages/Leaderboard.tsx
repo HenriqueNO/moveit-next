@@ -3,6 +3,7 @@ import { useSession } from "next-auth/client"
 import Head from "next/head"
 import { MenuAside } from "../components/MenuAside"
 import { NotLoggedModal } from "../components/NotLoggedModal"
+import { RenderLeaderborad } from "../components/RenderLeaderboard"
 
 import styles from '../styles/pages/Leaderboard.module.css'
 import { connectToDataBase } from "./api/_connectDatabase"
@@ -44,32 +45,7 @@ if(session) {
               <label className={styles.experience}>Experiência</label>
             </div>
           </div>
-
-          {props.properties.map((e, i : number) => {
-            while( i < 6) {
-              return (
-                <div key={i} className={styles.tableDataContainer}>
-                  <div className={styles.tableDataUser}>
-                    <div>
-                    <p>{i + 1}</p>
-                    </div>
-                    <div className={styles.user}>
-                      <div>
-                        <img src={e.image} alt="foto perfil" width="64"/>
-                        <div>
-                          <strong>{e.name}</strong>
-                          <p>
-                            <img src="/icons/level.svg" alt="level"/> Level {e.level}
-                          </p>
-                        </div>
-                      </div>
-                      <p>{e.challengesCompleted}</p>
-                      <p>{e.totalExperience}</p>
-                    </div>
-                  </div>
-                </div>
-              )}
-          })}
+        <RenderLeaderborad props={props.properties} />
         </div>
       </div>
     </div>
@@ -84,7 +60,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const data = (
     await db.collection('data')
     .find({ }, { projection: {_id: 0, email: 0}})
-    .sort({challengesCompleted: -1, totalExperience: -1})
+    .sort({totalExperience: -1, level: -1, challengesCompleted: -1, })
     .toArray()
   )
 
