@@ -13,11 +13,13 @@ export function Login() {
        
     return (
         <div className={styles.container}>
-            <img src="/icons/logo-app.svg" alt="logo Move.it"/>
-            <header>Bem-vindo</header>
-            <div className={styles.containerText}>
-                <p>Escolha uma opção de login para continuar</p>
-            </div>
+            <header className={styles.containerInfo}>
+                <img src="/icons/logo-app.svg" alt="logo Move.it"/>
+                <h1>Bem-vindo</h1>
+                <div className={styles.containerText}>
+                    <p>Escolha uma opção de login para começar</p>
+                </div>
+            </header>
 
             <div className={styles.containerLogin}>
                 {!session && <>
@@ -28,7 +30,6 @@ export function Login() {
                     <button onClick={(): Promise<void> => signIn('google', {callbackUrl:"/Home"})}>
                     <img src="/icons/google-icon.svg" alt="login google"/>
                     </button></> }
-            </div>
-        </div>
+            </div></div>
     )
 }
