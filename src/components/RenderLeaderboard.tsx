@@ -2,17 +2,18 @@ import { useState } from 'react'
 import styles from '../styles/components/RenderLeaderboard.module.css'
 
 export function RenderLeaderborad(props) {
-  const [cont, setCont] = useState(7)
+  const [cont, setCont] = useState(6)
+
 
   function upData() {
-    if ( cont > 7 ) {
-      setCont(cont - 7)
+    if ( cont > 6 ) {
+      setCont(cont - 6)
     }
   }
 
   function downData() {
     if (cont < props.props.length) {
-      setCont(cont + 7)
+      setCont(cont + 6)
     }
   }
 
@@ -20,7 +21,7 @@ export function RenderLeaderborad(props) {
     <div>
       <div>
       {props.props.map((e, i, data: number) => {
-        i += cont - 7
+        i += cont - 6
 
         while( i < cont && i < props.props.length) {
           return (
@@ -48,10 +49,13 @@ export function RenderLeaderborad(props) {
           )}
       })}</div>
 
+      { props.props.length > 6 &&
       <div className={styles.buttonNavData}>
         <span onClick={upData}>&#8657;</span>
         <span onClick={downData}>&#8659;</span>
       </div>
+      }
+      
     </div>
   )
 }
