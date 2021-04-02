@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { finished } from "node:stream";
-import { connectToDataBase } from './_connectDatabase'
+import { connectToDataBase } from '../_connectDatabase'
 
 interface data {
     name: Required<string>,
@@ -19,7 +19,7 @@ export default async (req: NextApiRequest, res : NextApiResponse) => {
     const document = await collection.findOne({name: name})
 
     if (document) {
-        await db.collection('data').findOneAndUpdate({name: name}, {$set: {
+        await collection.findOneAndUpdate({name: name}, {$set: {
             level: level,
             currentExperience: currentExperience,
             challengesCompleted: challengesCompleted,

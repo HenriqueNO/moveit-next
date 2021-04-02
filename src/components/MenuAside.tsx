@@ -13,12 +13,12 @@ export function MenuAside() {
     return (
             <header className={styles.container}>
 
-                <Link href='/'>
+                <Link href='/Accont'>
                 <button 
                     type="button"
-                    onClick={(): Promise<void> => signOut({callbackUrl: 'http://localhost:3000'})}
+                    
                 >
-                    <Image src="/icons/close.svg" alt="logout" width="32" height="32"/>
+                    <Image src="/icons/moveit-icon.svg" alt="logout" width="32" height="32"/>
                 </button>
                 </Link>
                 

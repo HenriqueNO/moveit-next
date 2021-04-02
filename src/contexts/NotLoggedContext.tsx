@@ -1,4 +1,5 @@
 import { useSession } from "next-auth/client";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { createContext, ReactNode, useEffect, useState } from "react";
 
@@ -26,7 +27,7 @@ export function NotLoggedProvider({children}: NotLoggedProps) {
                     setTime(time + 1)
                 }, 100)
             } else if (time === 100) {
-                Router.push('/')
+                Router.replace('/')
            }
         }
     }, [time])
@@ -39,7 +40,7 @@ export function NotLoggedProvider({children}: NotLoggedProps) {
             <div className={styles.isNotLoggedOverLay}>
           <div className={styles.isNotLoggedContainer}>
             <h1>Você não esta logado!</h1>
-            <p>Voltando para pagina de <a href="/">login</a>.</p>
+            <p>Voltando para pagina de <Link href="/">login</Link>.</p>
           </div>
         <div>
             <div style={{width: `${time}%`}} />

@@ -15,7 +15,6 @@ interface leaderBoardProps {
     challengesCompleted: string,
     currentExperience: string,
     totalExperience: string,
-    map: Function,
     }
 }
 

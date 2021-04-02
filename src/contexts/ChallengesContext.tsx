@@ -49,7 +49,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     }, [])
     
     useEffect(() => {
-        axios.post('/api/data', {...rest.user, level, currentExperience, challengesCompleted, totalExperience})
+        axios.post('/api/_data/data', {...rest.user, level, currentExperience, challengesCompleted, totalExperience})
     }, [challengesCompleted])
 
     useEffect(() => {

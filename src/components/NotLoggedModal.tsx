@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import styles from '../styles/components/NotLoggedModal.module.css'
@@ -12,7 +13,7 @@ export function NotLoggedModal() {
             setTime(time + 1)
           }, 30)
         } else if (time === 100) {
-          Router.push('/')
+          Router.replace('/')
         }
     }, [time])
 
@@ -22,7 +23,7 @@ export function NotLoggedModal() {
         <div className={styles.isNotLoggedOverLay}>
           <div className={styles.isNotLoggedContainer}>
             <h1>Você não esta logado!</h1>
-            <p>Voltando para pagina de <a href="/">login</a>.</p>
+            <p>Voltando para pagina de <Link href="/">login</Link>.</p>
           </div>
           <div>
               <div style={{width: `${time}%`}} />
