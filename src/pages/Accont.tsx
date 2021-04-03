@@ -1,25 +1,20 @@
-import { signOut, useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/client'
 import Head from 'next/head'
-import Link from 'next/link'
-import { useContext } from 'react'
 import { MenuAside } from '../components/MenuAside'
 import { NavButtonAccont } from '../components/NavButtonAccont'
 import { NotLoggedModal } from '../components/NotLoggedModal'
-import { DeleteAccontContext, DeleteAccontProvider } from '../contexts/DeleteAccontContext'
+import { DeleteAccontProvider } from '../contexts/DeleteAccontContext'
 import styles from '../styles/pages/Accont.module.css'
 
-export default function ProfileConfig() {
-  const [session, loading] = useSession()
+export default function Accont() {
+  const [ session, loading ] = useSession()
 
   if(loading) {
-    return(
-      <h1>carregando...</h1>
-    )
+    return <h1>carregando...</h1>
   }
 
   if(session) {
     return (
-      
       <div>
         <Head>
           <title>Accont | PLB</title>
@@ -37,10 +32,9 @@ export default function ProfileConfig() {
           </div>
           </div>
       </div>
-      
     )
   } else {
-    <NotLoggedModal />
+    return <NotLoggedModal />
   }
 
 }

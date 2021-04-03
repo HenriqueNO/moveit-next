@@ -23,7 +23,7 @@ export function NotLoggedModal() {
         <div className={styles.isNotLoggedOverLay}>
           <div className={styles.isNotLoggedContainer}>
             <h1>Você não esta logado!</h1>
-            <p>Voltando para pagina de <Link href="/">login</Link>.</p>
+            <p>Voltando para pagina de <Link href="/" replace={true}>login</Link>.</p>
           </div>
           <div>
               <div style={{width: `${time}%`}} />
