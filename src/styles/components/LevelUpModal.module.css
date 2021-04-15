@@ -7,6 +7,7 @@
     right: 0;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -16,7 +17,7 @@
     width: 100%;
     max-width: 400px;
     padding: 2rem 3rem;
-    border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
     box-shadow:  0 0 60px rdba(0, 0, 0.86);
     text-align: center;
     position: relative;
@@ -25,7 +26,7 @@
 .container header {
     font-size: 8.75rem;
     font-weight: 600;
-    color: var(--blue);
+    color: var(--purple-dark);
     background: url('/icons/levelup.svg') no-repeat center;
     background-size: contain;
 }
@@ -48,4 +49,18 @@
     background: none;
     border: 0;
     font-size: 0px;
+}
+
+.buttonShare {
+    height: 4rem;
+    width: 100%;
+    max-width: 400px;
+    background: var(--white);
+    color: var(--blue-twitter);
+    border-top: 1px solid rgba(242, 243, 245, 0.8);
+    border-radius: 0px 0px 5px 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
